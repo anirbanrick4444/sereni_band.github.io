@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sereni Band – Closed-Loop Stress Relief</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--lav:#E6E6FA;--sage:#96AF88;--bg:#96AF88;--card:#E6E6FA;--ink:#2f4227;--mute:#56704b;--deep:#4a6640;--line:#96AF88}
+html{background:#fff;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#7a966c 0%,#96AF88 30%,#cfdcc7 68%,#ffffff 100%) no-repeat;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+header{color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 5vw;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.brand img{height:44px;width:auto}
+.slot{width:56px;height:56px;border:2px dashed var(--sage);border-radius:10px;display:grid;place-items:center;font-size:10px;color:var(--mute);text-align:center;line-height:1.1;overflow:hidden}
+.slot img{width:100%;height:100%;object-fit:contain}
+nav a{margin-left:16px;color:var(--mute);text-decoration:none;font-size:14px}
+nav a:hover{color:var(--deep)}
+.wrap{max-width:1150px;margin:0 auto;padding:0 5vw}
+.hero{padding:24px 0 12px;color:var(--ink)}
+.hero .wrap{background:linear-gradient(135deg,#E6E6FA,#d3d3f7);border-radius:28px;padding:40px 5vw 34px;width:calc(100% - 24px);box-shadow:0 14px 40px #6f8a6266}
+.hero h1{font-size:clamp(30px,5vw,52px);margin:0 0 10px;line-height:1.1}
+.hero p{max-width:640px;font-size:18px;margin:0 0 20px}
+.tag{display:inline-block;background:#96AF88;border:1px solid #96AF88;border-radius:99px;padding:4px 12px;font-size:13px;margin:0 6px 6px 0}
+section{padding:44px 0}
+h2{font-size:28px;margin:0 0 10px;background:#E6E6FA;padding:6px 16px;border-radius:14px;width:fit-content;max-width:100%}
+.sub{color:var(--ink);margin:0 0 22px}
+.viewer{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+@media(max-width:860px){.viewer{grid-template-columns:1fr}nav{display:none}}
+.card{color:var(--ink);background:var(--card);box-shadow:0 10px 28px #6f8a6255;border:1px solid #c4c4f0;border-radius:16px;padding:18px}
+#stage{position:relative;height:520px;padding:0;overflow:hidden;background:radial-gradient(circle at 50% 30%,#E6E6FA,#b9b9ee 95%)}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none}
+.hint{position:absolute;left:12px;bottom:10px;font-size:12px;color:var(--mute);pointer-events:none}
+.bar{position:absolute;top:10px;left:10px;right:10px;display:flex;flex-wrap:wrap;gap:8px}
+button{font:inherit;font-size:14px;border:1px solid var(--sage);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px;cursor:pointer}
+button:hover{background:#c9d8bf;color:var(--ink)}
+button.pri{background:var(--sage);color:var(--ink);border-color:var(--sage);font-weight:600}
+button.stop{background:var(--deep);border-color:var(--deep);color:#E6E6FA;font-weight:600}
+.pill{display:inline-block;padding:4px 12px;border-radius:99px;font-size:13px;font-weight:600;background:#c9d8bf;color:var(--ink)}
+.pill.on{background:var(--sage);color:var(--ink)}.pill.alert{background:#b7b0e8;color:var(--ink)}
+#info h3{margin:0 0 4px}
+#info .sp{font-size:13px;color:var(--mute)}
+.list{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.list button{padding:5px 10px;font-size:12px}
+.list button.act{background:var(--sage);color:var(--ink)}
+label{display:block;font-size:13px;margin-top:10px;color:var(--mute)}
+label b{color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--sage)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.step{background:#d6d6f8;border:1px solid var(--line);border-radius:12px;padding:10px;font-size:13px;text-align:center;transition:.2s}
+.step.hot{background:var(--sage);color:var(--ink);border-color:var(--sage)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+.grid3 h3{margin:0 0 6px;color:var(--deep)}
+code{background:#c9d8bf;color:var(--ink);padding:1px 6px;border-radius:6px;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left}
+#engine .sub{color:var(--mute)}
+footer{background:#E6E6FA;padding:28px 0;text-align:center;color:var(--ink);font-size:13px;border-top:1px solid #E6E6FA}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 88% 10%,#E6E6FAdd,transparent 42%),radial-gradient(circle at 6% 58%,#E6E6FAaa,transparent 40%)}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="data:image/png;base64,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" alt="TUHH logo"><span>Hamburg University of Technology</span></div>
+  <nav><a href="#demo">3D Demo</a><a href="#engine">Closed-Loop Engine</a><a href="#hw">Schematic</a></nav>
+  <!-- Replace the text inside .slot with: <img src="your-sereni-logo.png" alt="Sereni"> -->
+  <div class="slot" id="sereniLogo">Sereni<br>logo</div>
+</header>
+
+<div class="hero"><div class="wrap">
+  <span class="tag">COSIMA Competition · Germany</span>
+  <h1>Sereni Band<br>Calm that starts before you notice stress.</h1>
+  <p>A wearable that senses heart rate, skin temperature and sweat, and automatically releases a puff of lavender or bergamot aroma when your body shows stress.</p>
+  <span class="tag">MAX30102 pulse</span><span class="tag">NTC temperature</span><span class="tag">Custom stainless-steel GSR electrodes</span><span class="tag">ESP32</span><span class="tag">Ultrasonic atomizer</span>
+</div></div>
+
+<section id="demo"><div class="wrap">
+  <h2>Interactive tech demo</h2>
+  <p class="sub">Rotate freely, zoom, and click any part to inspect it. Use the controls to run the stress response.</p>
+  <div class="viewer">
+    <div class="card" id="stage">
+      <div class="bar">
+        <button class="pri" id="bSpray">💨 Spray</button>
+        <button class="stop" id="bStop">⏹ Push button (stop)</button>
+        <button id="bExp">Explode view</button>
+        <button id="bCov">Hide cover</button>
+      </div>
+      <div class="hint">Drag: rotate · Scroll/pinch: zoom · Right-drag: pan · Click: inspect</div>
+    </div>
+    <div style="display:grid;gap:18px;align-content:start">
+      <div class="card" id="info"><h3>Select a part</h3><div class="sp">Click on the 3D model or choose below.</div><p>Layout: atomizer on top, ESP32 + push button in the middle, sensors at the bottom — all separate modules, no shared PCB.</p><div class="list" id="plist"></div></div>
+      <div class="card">
+        <b>Live simulation</b> &nbsp;<span class="pill" id="state">IDLE</span>
+        <label>Heart rate: <b id="vH">72</b> bpm <small>(stress &gt; 100)</small><input id="rH" type="range" min="50" max="150" value="72"></label>
+        <label>Skin temp: <b id="vT">36.2</b> °C <small>(stress &gt; 37.2)</small><input id="rT" type="range" min="34" max="39" step="0.1" value="36.2"></label>
+        <label>Sweat (GSR): <b id="vG">20</b> % <small>(stress &gt; 60)</small><input id="rG" type="range" min="0" max="100" value="20"></label>
+        <div style="margin-top:12px;display:flex;gap:8px"><button class="pri" id="bStress">Simulate stress</button><button id="bCalm">Calm</button></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="engine" style="background:linear-gradient(180deg,#E6E6FA,#d3d3f6);color:var(--ink)"><div class="wrap">
+  <h2>Closed-Loop Stress Detection Engine</h2>
+  <p class="sub">The ESP32 fuses all sensors and only acts when every signal agrees — which avoids false triggers from exercise or a warm room alone.</p>
+  <div class="steps"><div class="step" id="s1"><b>1 Sense</b><br>HR · Temp · Sweat</div><div class="step" id="s2"><b>2 Fuse</b><br>All 3 above threshold</div><div class="step" id="s3"><b>3 Act</b><br>ESP32 enables atomizer</div><div class="step" id="s4"><b>4 Feedback</b><br>Lavender / bergamot, vitals recheck</div></div>
+  <div class="grid3">
+    <div><h3>Auto spray</h3>When HR, temperature and sweat are high at the same time, the ESP32 sets <code>IO23 → EN</code> and the atomizer mists lavender or bergamot oil.</div>
+    <div><h3>Push-button override</h3>Press the button (<code>IO27</code>) and spraying stops immediately. It stays off until your vitals return to normal, then re-arms.</div>
+    <div><h3>Closed loop</h3>Sensors keep running during the spray. Once the signals drop below threshold, the spray ends by itself.</div>
+  </div>
+</div></section>
+
+<section id="hw"><div class="wrap"><style>
+#hw h2{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:800;width:fit-content}
+#hw .frame{border:2px solid var(--sage);border-radius:22px;background:#E6E6FA;padding:18px;overflow-x:auto}
+#hw .bx{fill:#d9d9f6;stroke:var(--sage);stroke-width:2.5}
+#hw .ln line{stroke:var(--sage);stroke-width:2.5}#hw .ln .dash{stroke-dasharray:7 6}
+#hw text{text-anchor:middle;font-family:"Outfit",system-ui,sans-serif}
+#hw .t{font-size:15px;font-weight:800;fill:var(--deep)}#hw .s{font-size:11px;font-weight:600;fill:var(--deep)}
+#hw .pl{fill:var(--sage);stroke:var(--sage);stroke-width:1.5}#hw .p{font-size:10.5px;font-weight:700;fill:#1f3018}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&display=swap">
+  <h2><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2f4227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg> Hardware Architecture Schematic</h2>
+  <p class="sub">How the ESP32 connects to every sensor and to the atomizer.</p>
+  <div class="frame"><svg viewBox="0 0 850 380" role="img" aria-label="Hardware architecture block diagram" style="width:100%;min-width:620px;height:auto;display:block"><g class="ln"><line x1="200" y1="74" x2="330" y2="150" class="dash"/><line x1="200" y1="200" x2="330" y2="200"/><line x1="200" y1="326" x2="330" y2="262"/><line x1="495" y1="144" x2="640" y2="144"/><line x1="495" y1="290" x2="640" y2="290"/></g><rect class="bx" x="50" y="40" width="150" height="68" rx="12"/><text class="t" x="125.0" y="71.0">MAX30102</text><text class="s" x="125.0" y="90.0">Heart Rate Sensor</text><rect class="bx" x="50" y="166" width="150" height="68" rx="12"/><text class="t" x="125.0" y="197.0">NTC Thermistor</text><text class="s" x="125.0" y="216.0">10k Voltage Divider</text><rect class="bx" x="50" y="292" width="150" height="68" rx="12"/><text class="t" x="125.0" y="323.0">Push Button</text><text class="s" x="125.0" y="342.0">Manual Override</text><rect class="bx" x="330" y="100" width="165" height="210" rx="12"/><text class="t" x="412.5" y="202.0">ESP32</text><text class="s" x="412.5" y="221.0">Microcontroller Core</text><rect class="bx" x="640" y="110" width="150" height="68" rx="12"/><text class="t" x="715.0" y="141.0">Atomizer</text><text class="s" x="715.0" y="160.0">Ultrasonic Mist</text><rect class="bx" x="640" y="256" width="150" height="68" rx="12"/><text class="t" x="715.0" y="287.0">GSR Electrodes</text><text class="s" x="715.0" y="306.0">1M&#937; Voltage Divider</text><rect class="pl" x="237.0" y="102" width="56" height="20" rx="6"/><text class="p" x="265" y="116">I2C Bus</text><rect class="pl" x="229.0" y="190" width="72" height="20" rx="6"/><text class="p" x="265" y="204">Analog ADC</text><rect class="pl" x="229.0" y="284" width="72" height="20" rx="6"/><text class="p" x="265" y="298">Digital IN</text><rect class="pl" x="530.0" y="134" width="74" height="20" rx="6"/><text class="p" x="567" y="148">GPIO (EN)</text><rect class="pl" x="531.0" y="280" width="72" height="20" rx="6"/><text class="p" x="567" y="294">Analog ADC</text></svg></div>
+</div></section>
+
+<footer>© 2026 Sereni Band · Hamburg University of Technology (TUHH) · COSIMA</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const stage=$('stage');
+const INFO={
+ cover:['Top cover','Black shell with aroma outlet','Houses the atomizer. The opening lets the mist escape upward. Hide it with the button to see inside.'],
+ atomizer:['Ultrasonic atomizer','Level 1 · EN pin ← ESP32 IO23','Piezo disc with driver board; turns lavender or bergamot oil into a fine mist when enabled.'],
+ cartridge:['Oil cartridge','Sealed lavender / bergamot','Sealed reservoir feeding the atomizer disc.'],
+ esp:['ESP32 DevKitC','Level 2 · Controller','Reads all sensors, runs the closed-loop stress logic and drives the atomizer.'],
+ button:['Push button','Level 2 · IO27 (10k pull-down)','Stops spraying immediately. Auto-spray re-arms once vitals normalise.'],
+ max:['MAX30102','Level 3 · I²C (IO21/IO22)','Optical pulse sensor that measures heart rate (and SpO₂).'],
+ ntc:['NTC thermistor','Level 3 · IO35 (10k divider)','Measures skin temperature.'],
+ gsr:['Custom stainless-steel GSR electrodes','Level 3 · IO34 (1 MΩ divider)','Our own electrodes that measure skin conductance, which rises with sweat.']
+};
+const order=['cover','atomizer','cartridge','esp','button','max','ntc','gsr'];
+const pl=$('plist');
+order.forEach(k=>{const b=document.createElement('button');b.textContent=INFO[k][0].split(' (')[0];b.dataset.k=k;b.onclick=()=>select(k);pl.appendChild(b)});
+
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(40,1,.1,100);cam.position.set(5.5,4.5,6.5);
+const ren=new THREE.WebGLRenderer({antialias:true,alpha:true});ren.setPixelRatio(Math.min(devicePixelRatio,2));
+stage.appendChild(ren.domElement);
+const ctl=new THREE.OrbitControls(cam,ren.domElement);ctl.enableDamping=true;ctl.target.set(0,1.4,0);
+scene.add(new THREE.HemisphereLight(0xffffff,0x9988cc,.9));
+const dl=new THREE.DirectionalLight(0xffffff,.9);dl.position.set(4,8,5);scene.add(dl);
+
+const parts={};
+function mat(c,o={}){return new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.5,metalness:.1},o))}
+function add(g,geo,m,x,y,z,part){const me=new THREE.Mesh(geo,m);me.position.set(x,y,z);me.userData.part=part;g.add(me);(parts[part]=parts[part]||[]).push(me);return me}
+const B=(w,h,d)=>new THREE.BoxGeometry(w,h,d),C=(r,h,s=32)=>new THREE.CylinderGeometry(r,r,h,s);
+
+const root=new THREE.Group();scene.add(root);
+// base (bottom cover)
+const base=new THREE.Mesh(B(3.4,.25,2.4),mat(0x5f7a54));base.position.y=-.1;root.add(base);
+// Level 3 sensors
+const L3=new THREE.Group();L3.userData={y:.15,x:0};root.add(L3);
+add(L3,B(.9,.05,.9),mat(0x96AF88),-1,0,.1,'max');
+add(L3,B(.35,.07,.35),mat(0x4a6640),-1,.06,.1,'max');
+add(L3,C(.05,.05,12),mat(0xff3030,{emissive:0x661010}),-.85,.05,.35,'max');
+add(L3,B(.55,.05,.45),mat(0xb7b0e8),.2,0,.65,'ntc');
+add(L3,new THREE.SphereGeometry(.12,16,12),mat(0x4a6640),.2,.12,.65,'ntc');
+add(L3,B(.8,.04,1.1),mat(0x6f8a62),1,0,-.1,'gsr');
+const st=mat(0xd6dae0,{metalness:.95,roughness:.2});
+add(L3,C(.2,.07,32),st,1,.06,.2,'gsr');
+add(L3,C(.2,.07,32),st,1,.06,-.4,'gsr');
+// Level 2 ESP32 + button
+const L2=new THREE.Group();L2.userData={y:1.15,x:1.2};root.add(L2);
+add(L2,B(2.3,.07,1.1),mat(0xa59fe6),0,0,0,'esp');
+add(L2,B(.9,.1,.65),mat(0xc9ccd2,{metalness:.9,roughness:.3}),.3,.09,0,'esp');
+add(L2,B(.3,.15,.25),mat(0x999ca4,{metalness:.8}),-1.2,.1,0,'esp');
+add(L2,B(.55,.12,.55),mat(0x4a6640),.95,.1,.8,'button');
+add(L2,C(.17,.12,24),mat(0xE6E6FA,{emissive:0x1f1a3a}),.95,.2,.8,'button');
+// Level 1 atomizer + cover
+const L1=new THREE.Group();L1.userData={y:2.05,x:2.5};root.add(L1);
+add(L1,B(2.8,.6,1.9),mat(0xdcdcfa),0,.1,0,'atomizer');
+add(L1,B(1.1,.6,.8),mat(0xb99cf0,{transparent:true,opacity:.75}),-.7,.2,0,'cartridge');
+add(L1,C(.4,.16,40),mat(0xE6E6FA),.55,.5,0,'atomizer');
+const cover=new THREE.Group();L1.add(cover);cover.position.y=0;
+add(cover,B(3.1,.22,2.1),mat(0xc3c3f3,{roughness:.3}),0,.82,0,'cover');
+const outlet=add(cover,new THREE.TorusGeometry(.2,.05,12,32),mat(0xE6E6FA,{metalness:.5,roughness:.3}),.55,.96,0,'cover');outlet.rotation.x=Math.PI/2;
+const lv=[L3,L2,L1];
+
+// spray particles
+const N=160,pp=new Float32Array(N*3),vel=[],life=new Float32Array(N).fill(0);
+for(let i=0;i<N;i++)vel.push(new THREE.Vector3());
+const cv=document.createElement('canvas');cv.width=cv.height=64;const cx=cv.getContext('2d');
+const gr=cx.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'rgba(200,170,255,.9)');gr.addColorStop(1,'rgba(200,170,255,0)');cx.fillStyle=gr;cx.fillRect(0,0,64,64);
+const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
+const pts=new THREE.Points(pg,new THREE.PointsMaterial({size:.45,map:new THREE.CanvasTexture(cv),transparent:true,opacity:.6,depthWrite:false}));
+pts.frustumCulled=false;scene.add(pts);
+for(let i=0;i<N;i++)pp[i*3+1]=-99;
+
+// state
+let ex=0,exT=0,spraying=false,manual=0,latch=false,sel=null,coverOn=true;
+const tgt=ctl.target.clone();
+const v={h:72,t:36.2,g:20};
+function select(k){
+ sel=k;const i=INFO[k];
+ $('info').innerHTML='<h3>'+i[0]+'</h3><div class="sp">'+i[1]+'</div><p>'+i[2]+'</p><div class="list" id="plist">'+pl.innerHTML+'</div>';
+ $('info').querySelectorAll('.list button').forEach(b=>{b.onclick=()=>select(b.dataset.k)});
+ document.querySelectorAll('.list button').forEach(b=>b.classList.toggle('act',b.dataset.k===k));
+ const bb=new THREE.Box3();parts[k].forEach(m=>bb.expandByObject(m));bb.getCenter(tgt);
+ Object.keys(parts).forEach(p=>parts[p].forEach(m=>{m.material.emissive&&m.material.emissive.setHex(p===k?0x4a6b3c:(m.userData.e||0))}));
+}
+Object.keys(parts).forEach(p=>parts[p].forEach(m=>m.userData.e=m.material.emissive.getHex()));
+
+// click vs drag
+let down=null;const ray=new THREE.Raycaster(),mp=new THREE.Vector2();
+ren.domElement.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);
+ren.domElement.addEventListener('pointerup',e=>{
+ if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5)return;
+ const r=ren.domElement.getBoundingClientRect();mp.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);
+ ray.setFromCamera(mp,cam);
+ const hit=ray.intersectObjects(Object.values(parts).flat().filter(m=>m.visible&&m.parent.visible!==false),false)[0];
+ if(hit)select(hit.object.userData.part);
+ const p=hit&&hit.object.userData.part;if(p==='button')pushStop();
+});
+
+function pushStop(){latch=true;manual=0}
+$('bSpray').onclick=()=>{latch=false;manual=6};
+$('bStop').onclick=pushStop;
+$('bExp').onclick=()=>{exT=exT?0:1;$('bExp').textContent=exT?'Assemble':'Explode view'};
+$('bCov').onclick=()=>{coverOn=!coverOn;cover.visible=coverOn;parts.cover.forEach(m=>m.visible=coverOn);$('bCov').textContent=coverOn?'Hide cover':'Show cover'};
+[['rH','h','vH'],['rT','t','vT'],['rG','g','vG']].forEach(([r,k,l])=>$(r).oninput=e=>{v[k]=+e.target.value;$(l).textContent=e.target.value});
+function setV(h,t,g){$('rH').value=h;$('rT').value=t;$('rG').value=g;v.h=h;v.t=t;v.g=g;$('vH').textContent=h;$('vT').textContent=t;$('vG').textContent=g}
+$('bStress').onclick=()=>{setV(118,37.8,82);latch=false};
+$('bCalm').onclick=()=>setV(72,36.2,20);
+
+function size(){const w=stage.clientWidth,h=stage.clientHeight;ren.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()}
+new ResizeObserver(size).observe(stage);size();
+
+const clock=new THREE.Clock(),wp=new THREE.Vector3();
+function loop(){
+ requestAnimationFrame(loop);const dt=Math.min(clock.getDelta(),.05);
+ // logic
+ const stress=v.h>100&&v.t>37.2&&v.g>60;
+ if(!stress)latch=false;
+ if(latch)manual=0;else if(manual>0)manual-=dt;
+ spraying=(stress&&!latch)||manual>0;
+ const hot=[v.h>100||v.t>37.2||v.g>60,stress,spraying,spraying&&stress];
+ ['s1','s2','s3','s4'].forEach((s,i)=>$(s).classList.toggle('hot',hot[i]));
+ const s=$('state');
+ s.textContent=spraying?(stress?'STRESS → AUTO SPRAY':'SPRAYING (manual)'):(stress&&latch?'STOPPED BY BUTTON':'IDLE');
+ s.className='pill'+(spraying?' on':(stress?' alert':''));
+ // explode
+ ex+=(exT-ex)*.08;
+ lv.forEach((g,i)=>{g.position.y=g.userData.y*(1-ex)+(.3+i*1.4+.2)*ex*(i?1.0:1)+(i===0?.15*(1-ex):0)- (i===0?0:0);g.position.y=[.15,1.15,2.05][i]+ex*[0,1.2,2.6][i]});
+ // particles
+ outlet.getWorldPosition(wp);
+ let emit=spraying?4:0;
+ for(let i=0;i<N;i++){
+  if(life[i]<=0&&emit>0){emit--;life[i]=1+Math.random()*.8;pp[i*3]=wp.x+(Math.random()-.5)*.15;pp[i*3+1]=wp.y+.05;pp[i*3+2]=wp.z+(Math.random()-.5)*.15;vel[i].set((Math.random()-.5)*.5,1.2+Math.random()*.8,(Math.random()-.5)*.5)}
+  if(life[i]>0){life[i]-=dt;pp[i*3]+=vel[i].x*dt;pp[i*3+1]+=vel[i].y*dt;pp[i*3+2]+=vel[i].z*dt;vel[i].x*=.99;if(life[i]<=0)pp[i*3+1]=-99}
+ }
+ pg.attributes.position.needsUpdate=true;
+ ctl.target.lerp(tgt,.06);ctl.update();ren.render(scene,cam);
+}
+loop();
+})();
+</script>
+</body>
+</html>
