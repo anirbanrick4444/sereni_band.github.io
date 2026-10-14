@@ -72,7 +72,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 <div class="hero"><div class="wrap">
   <span class="tag">COSIMA Competition · Germany</span>
   <h1>Sereni Band<br>Calm that starts before you notice stress.</h1>
-  <p>A wearable that senses heart rate, skin temperature and sweat, and automatically releases a puff of lavender or bergamot aroma when your body shows stress.</p>
+  <p>A wearable that senses heart rate, skin temperature and sweat, and automatically releases a puff of lavender or peppermint aroma when your body shows stress.</p>
   <span class="tag">MAX30102 pulse</span><span class="tag">NTC temperature</span><span class="tag">Custom stainless-steel GSR electrodes</span><span class="tag">ESP32</span><span class="tag">Ultrasonic atomizer</span>
 </div></div>
 
@@ -105,9 +105,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 <section id="engine" style="background:linear-gradient(180deg,#E6E6FA,#d3d3f6);color:var(--ink)"><div class="wrap">
   <h2>Closed-Loop Stress Detection Engine</h2>
   <p class="sub">The ESP32 fuses all sensors and only acts when every signal agrees — which avoids false triggers from exercise or a warm room alone.</p>
-  <div class="steps"><div class="step" id="s1"><b>1 Sense</b><br>HR · Temp · Sweat</div><div class="step" id="s2"><b>2 Fuse</b><br>All 3 above threshold</div><div class="step" id="s3"><b>3 Act</b><br>ESP32 enables atomizer</div><div class="step" id="s4"><b>4 Feedback</b><br>Lavender / bergamot, vitals recheck</div></div>
+  <div class="steps"><div class="step" id="s1"><b>1 Sense</b><br>HR · Temp · Sweat</div><div class="step" id="s2"><b>2 Fuse</b><br>All 3 above threshold</div><div class="step" id="s3"><b>3 Act</b><br>ESP32 enables atomizer</div><div class="step" id="s4"><b>4 Feedback</b><br>Lavender / peppermint, vitals recheck</div></div>
   <div class="grid3">
-    <div><h3>Auto spray</h3>When HR, temperature and sweat are high at the same time, the ESP32 sets <code>IO23 → EN</code> and the atomizer mists lavender or bergamot oil.</div>
+    <div><h3>Auto spray</h3>When HR, temperature and sweat are high at the same time, the ESP32 sets <code>IO23 → EN</code> and the atomizer mists lavender or peppermint oil.</div>
     <div><h3>Push-button override</h3>Press the button (<code>IO27</code>) and spraying stops immediately. It stays off until your vitals return to normal, then re-arms.</div>
     <div><h3>Closed loop</h3>Sensors keep running during the spray. Once the signals drop below threshold, the spray ends by itself.</div>
   </div>
@@ -138,8 +138,8 @@ const $=id=>document.getElementById(id);
 const stage=$('stage');
 const INFO={
  cover:['Top cover','Black shell with aroma outlet','Houses the atomizer. The opening lets the mist escape upward. Hide it with the button to see inside.'],
- atomizer:['Ultrasonic atomizer','Level 1 · EN pin ← ESP32 IO23','Piezo disc with driver board; turns lavender or bergamot oil into a fine mist when enabled.'],
- cartridge:['Oil cartridge','Sealed lavender / bergamot','Sealed reservoir feeding the atomizer disc.'],
+ atomizer:['Ultrasonic atomizer','Level 1 · EN pin ← ESP32 IO23','Piezo disc with driver board; turns lavender or peppermint oil into a fine mist when enabled.'],
+ cartridge:['Oil cartridge','Sealed lavender / peppermint','Sealed reservoir feeding the atomizer disc.'],
  esp:['ESP32 DevKitC','Level 2 · Controller','Reads all sensors, runs the closed-loop stress logic and drives the atomizer.'],
  button:['Push button','Level 2 · IO27 (10k pull-down)','Stops spraying immediately. Auto-spray re-arms once vitals normalise.'],
  max:['MAX30102','Level 3 · I²C (IO21/IO22)','Optical pulse sensor that measures heart rate (and SpO₂).'],
